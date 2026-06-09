@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal del Líder | Guerreros de la Luz</title>
+    
+    <!-- Importación de Fuentes Elegantes e Institucionales -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- SCRIPT GLOBAL DE GOOGLE ADSENSE -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2119938123202915" crossorigin="anonymous"></script>
+
+    <style>
+        /* Variables de la Paleta de Colores Solicitada */
+        :root {
+            --bg-deep-black: #060606;
+            --bg-charcoal: #111111;
+            --bg-card: #1a1a1a;
+            --gold-primary: #c9a227;
+            --gold-light: #f2d675;
+            --white-warm: #f5f1e6;
+            --text-secondary: #b8b8b8;
+            --wine-sutil: #641e1e;
+            --font-title: 'Cinzel', Georgia, serif;
+            --font-body: 'Montserrat', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Estilos Globales y de Reseteo */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-deep-black);
+            color: var(--white-warm);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 30%, rgba(100, 30, 30, 0.15) 0%, transparent 50%);
+        }
+
+        /* Tipografías y Títulos */
+        h1, h2, h3, h4, .brand-title {
+            font-family: var(--font-title);
+            color: var(--gold-primary);
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-size: 0.95rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Barra de Navegación (Sticky y Elegante) */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(6, 6, 6, 0.95);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .brand-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-main {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--gold-primary);
+            text-shadow: 0 0 8px rgba(201, 162, 39, 0.3);
+        }
+
+        .brand-sub {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--white-warm);
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1px;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--gold-light);
+            border-bottom: 2px solid var(--gold-primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section / Portada Inmersiva */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 8rem 2rem 4rem 2rem;
+            background: linear-gradient(180deg, rgba(6,6,6,0.3) 0%, rgba(6,6,6,1) 100%), 
+                        radial-gradient(circle at 50% 50%, rgba(201, 162, 39, 0.08) 0%, transparent 60%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=1920') center/cover no-repeat;
+            opacity: 0.03;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            color: var(--white-warm);
+            text-shadow: 0 0 20px rgba(245, 241, 230, 0.1);
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            margin-bottom: 2rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Botones Base */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #a4801b 100%);
+            color: var(--bg-deep-black);
+            box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
+            border: 1px solid var(--gold-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 162, 39, 0.5);
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 100%);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white-warm);
+            border: 1px solid rgba(245, 241, 230, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-light);
+            background-color: rgba(201, 162, 39, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Secciones Estándar */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.05);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--white-warm);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold-primary);
+            margin: 0.7rem auto 0 auto;
+        }
+
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        /* Contenedores de Tarjetas / Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Estilos de Tarjeta Base */
+        .card {
+            background-color: var(--bg-charcoal);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 6px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(201, 162, 39, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(201, 162, 39, 0.05);
+        }
+
+        .card:hover::before {
+            transform: translateX(100%);
+            transition: all 0.8s ease;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            color: var(--white-warm);
+        }
+
+        .card p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Panel Interno: Mi Servicio */
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gold-light);
+            border: 1px solid rgba(201, 162, 39, 0.1);
+        }
+
+        /* Centro de Operaciones */
+        .ops-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 1rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            padding: 0.5rem 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            color: var(--gold-primary);
+            text-shadow: 0 0 10px rgba(201, 162, 39, 0.2);
+        }
+
+        .ops-content-block {
+            display: none;
+        }
+
+        .ops-content-block.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .sub-items-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .sub-items-list li {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sub-items-list li i {
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.75rem;
+        }
+
+        /* Universidad / Niveles de Formación */
+        .univ-level-box {
+            background-color: var(--bg-charcoal);
+            border-left: 4px solid var(--gold-primary);
+            border-radius: 0 6px 6px 0;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+
+        .univ-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 3px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
+            border-radius: 3px;
+        }
+
+        /* Biblioteca de la Luz */
+        .search-wrapper {
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3rem;
+            background-color: var(--bg-charcoal);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 30px;
+            color: var(--white-warm);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--gold-light);
+            box-shadow: 0 0 15px rgba(201, 162, 39, 0.15);
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold-primary);
+        }
+
+        .filter-tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .filter-tag {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-tag.active, .filter-tag:hover {
+            background-color: rgba(201, 162, 39, 0.1);
+            border-color: var(--gold-primary);
+            color: var(--gold-light);
+        }
+
+        /* Frase Destacada Banner */
+        .quote-banner {
+            background: linear-gradient(135deg, #111111 0%, var(--bg-deep-black) 100%);
+            border-y: 1px solid rgba(201, 162, 39, 0.1);
+            text-align: center;
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .quote-banner h2 {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            color: var(--white-warm);
+            font-style: italic;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* ESTILOS PARA CONTENEDOR ADSENSE */
+        .ad-container {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 1rem;
+            background-color: rgba(255,255,255,0.02);
+            border-top: 1px solid rgba(201, 162, 39, 0.1);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.1);
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+        }
+        
+        .ad-container::before {
+            content: 'Espacio Patrocinado';
+            position: absolute;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.2);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            top: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        /* Accesos Rápidos */
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quick-btn {
+            background-color: var(--bg-charcoal);
+            border: 1px solid rgba(255,255,255,0.03);
+            padding: 1.5rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .quick-btn i {
+            color: var(--gold-primary);
+            font-size: 1.3rem;
+        }
+
+        .quick-btn:hover {
+            border-color: var(--gold-primary);
+            background-color: rgba(201, 162, 39, 0.03);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #030303;
+            border-top: 1px solid rgba(201, 162, 39, 0.1);
+            padding: 4rem 2rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: var(--white-warm);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-sub {
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .footer-motto {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .footer-recio {
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            margin: 2rem 0;
+            text-shadow: 0 0 15px rgba(242, 214, 117, 0.3);
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsivo */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 3.2rem; }
+            nav ul { display: none; }
+            .menu-toggle { display: block; }
+            nav.mobile-active ul {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-deep-black);
+                padding: 2rem;
+                border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.3rem; }
+            .hero h2 { font-size: 1.1rem; }
+            .grid-3, .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVEGACIÓN PRINCIPAL -->
+    <header>
+        <div class="nav-container">
+            <div class="brand-box">
+                <span class="brand-main">PORTAL DEL LÍDER</span>
+                <span class="brand-sub">Guerreros de la Luz</span>
+            </div>
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#mi-servicio">Mi Servicio</a></li>
+                    <li><a href="#operaciones">Operaciones</a></li>
+                    <li><a href="#universidad">Universidad</a></li>
+                    <li><a href="#biblioteca">Biblioteca</a></li>
+                    <li><a href="#red-nacional">Directorio</a></li>
+                    <li><a href="#marketing">Marketing</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO PRINCIPAL / PORTADA -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Portal del Líder</h1>
+            <h2>Guerreros de la Luz | Fraternidad de la Luz</h2>
+            <p>“Un espacio creado para que ningún líder camine a ciegas. Aquí se preserva la filosofía, se ordena el servicio, se fortalece la comunidad y se prepara a los guerreros que sostendrán la luz para las próximas generaciones.”</p>
+            <div class="hero-buttons">
+                <a href="#operaciones" class="btn btn-primary"><i class="fa-solid fa-shield-halved"></i> Centro de Operaciones</a>
+                <a href="#universidad" class="btn btn-secondary"><i class="fa-solid fa-graduation-cap"></i> Universidad del Líder</a>
+                <a href="#biblioteca" class="btn btn-secondary"><i class="fa-solid fa-book-open"></i> Explorar Biblioteca</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE ADSENSE 1 (Bajo el Hero) -->
+    <div class="ad-container">
+        <!-- Bloque de anuncio adaptable -->
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; height:100%; min-height:90px;"
+             data-ad-client="ca-pub-2119938123202915"
+             data-ad-slot="TU_CODIGO_DE_SLOT_AQUI"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- SECCIÓN 1: MI SERVICIO -->
+    <section id="mi-servicio">
+        <div class="section-header">
+            <h2>Mi Servicio</h2>
+            <p>Panel de control del servidor. Gestiona las actividades cotidianas y compromisos de tu liderazgo.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-house-chimney-crack"></i></div>
+                <h3>Mi Grupo</h3>
+                <p>Consulta los datos principales de tu grupo, horarios, responsables, pendientes y estructura de servicio.</p>
+                <button class="btn btn-secondary btn-sm" onclick="simularAccion('Abriendo panel de grupo...')">Entrar</button>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <h3>Mi Zona</h3>
+                <p>Accede a comunicados oficiales, calendario de juntas regionales, eventos conjuntos y coordinación.</p>
+                <button class="btn btn-secondary btn-sm" onclick="simularAccion('Cargando calendario de zona...')">Ver más</button>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-list-check"></i></div>
+                <h3>Mis Pendientes</h3>
+                <p>Revisa tareas del diplomado, capacitaciones pendientes, formatos de inventario y servicios.</p>
+                <button class="btn btn-secondary btn-sm" onclick="simularAccion('Mostrando checklist de pendientes...')">Revisar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: CENTRO DE OPERACIONES -->
+    <section id="operaciones">
+        <div class="section-header">
+            <h2>Centro de Operaciones</h2>
+            <p>“El servicio necesita amor, pero también orden. Aquí se reúnen los protocolos, formatos y reglamentos que permiten que cada grupo trabaje con unidad, claridad y responsabilidad.”</p>
+        </div>
+
+        <div class="ops-tabs">
+            <button class="tab-btn active" onclick="switchTab('ops-protocolos')">A. Protocolos</button>
+            <button class="tab-btn" onclick="switchTab('ops-responsivas')">B. Responsivas</button>
+            <button class="tab-btn" onclick="switchTab('ops-reglamentos')">C. Reglamentos</button>
+        </div>
+
+        <!-- Bloque A: Protocolos -->
+        <div id="ops-protocolos" class="ops-content-block active">
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Sesión Diaria</h3>
+                    <ul class="sub-items-list">
+                        <li><i class="fa-solid fa-circle"></i> Objetivo de recuperación</li>
+                        <li><i class="fa-solid fa-circle"></i> Guía de coordinación 2024</li>
+                        <li><i class="fa-solid fa-circle"></i> Checklist de apertura</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="simularDescarga('Guía de Sesión Diaria')">Descargar</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Uso de la Tribuna</h3>
+                    <ul class="sub-items-list">
+                        <li><i class="fa-solid fa-circle"></i> Estructura y tiempo (10 min)</li>
+                        <li><i class="fa-solid fa-circle"></i> Regla del toque de campana</li>
+                        <li><i class="fa-solid fa-circle"></i> No terapia directa / No réplica</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="simularDescarga('Protocolo de Tribuna')">Descargar</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Aniversarios</h3>
+                    <ul class="sub-items-list">
+                        <li><i class="fa-solid fa-circle"></i> Planeación logística previa</li>
+                        <li><i class="fa-solid fa-circle"></i> Roles de servicio asignados</li>
+                        <li><i class="fa-solid fa-circle"></i> Protocolo de ceremonia</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="simularDescarga('Manual de Aniversarios')">Descargar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bloque B: Responsivas -->
+        <div id="ops-responsivas" class="ops-content-block">
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-file-signature"></i></div>
+                    <h3>Responsiva de Ingreso: Adultos</h3>
+                    <p>Formato oficial obligatorio para deslindar responsabilidades legales y establecer el consentimiento informado de ingreso a la Hacienda de adultos.</p>
+                    <div class="card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="simularDescarga('Responsiva Adultos')"><i class="fa-solid fa-download"></i> Descargar</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-file-shield"></i></div>
+                    <h3>Responsiva de Ingreso: Menores</h3>
+                    <p>Formato legal estricto que debe ser firmado obligatoriamente por los padres o tutores legales antes de autorizar la participación.</p>
+                    <div class="card-actions">
+                        <button class="btn btn-primary btn-sm" onclick="simularDescarga('Responsiva Menores')"><i class="fa-solid fa-download"></i> Descargar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bloque C: Reglamentos -->
+        <div id="ops-reglamentos" class="ops-content-block">
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-gavel"></i></div>
+                    <h3>Reglamento de Grupo</h3>
+                    <p>Autonomía responsable, finanzas visibles de la Séptima y normas internas de la Casa Común.</p>
+                    <button class="btn btn-secondary btn-sm" onclick="simularAccion('Cargando Reglamento de Grupo...')">Leer</button>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-campground"></i></div>
+                    <h3>Reglamento de Hacienda</h3>
+                    <p>Normas de convivencia en la Hacienda La Amada, horarios, disciplina y control de cercos.</p>
+                    <button class="btn btn-secondary btn-sm" onclick="simularAccion('Cargando Reglamento de Hacienda...')">Leer</button>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h3>12 Tradiciones y Principios</h3>
+                    <p>Estructura de gobernanza grupal basada en el bienestar común por encima del ego.</p>
+                    <button class="btn btn-secondary btn-sm" onclick="simularAccion('Cargando Principios...')">Leer</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: UNIVERSIDAD GUERREROS DE LA LUZ -->
+    <section id="universidad">
+        <div class="section-header">
+            <h1>Universidad Guerreros de la Luz</h1>
+            <p>“Formar líderes no es llenar cabezas de información. Es despertar conciencia, ordenar el carácter y preparar servidores capaces de sostener a otros sin perderse a sí mismos.”</p>
+        </div>
+
+        <div>
+            <!-- Nivel 1 -->
+            <div class="univ-level-box">
+                <div class="univ-header">
+                    <h3>Nivel 1: Identidad y Filosofía</h3>
+                    <span class="badge">100% Completado</span>
+                </div>
+                <p>Estudio crónico del legado, principios de la Fraternidad, enunciado institucional y el significado profundo del servicio con humildad y pertenencia.</p>
+                <div class="progress-bar-container"><div class="progress-bar" style="width: 100%;"></div></div>
+                <button class="btn btn-secondary btn-sm" onclick="simularAccion('Abriendo material del Nivel 1...')">Repasar Módulos</button>
+            </div>
+
+            <!-- Nivel 2 -->
+            <div class="univ-level-box">
+                <div class="univ-header">
+                    <h3>Nivel 2: Doctrinas del Servicio</h3>
+                    <span class="badge">75% En curso</span>
+                </div>
+                <p>Las tres competencias espirituales inamovibles: Informar (neutralidad), Transmitir (experiencia propia) y Contener (estabilidad emocional).</p>
+                <div class="progress-bar-container"><div class="progress-bar" style="width: 75%;"></div></div>
+                <button class="btn btn-primary btn-sm" onclick="simularAccion('Cargando siguiente lección del Nivel 2...')">Continuar Curso</button>
+            </div>
+
+            <!-- Nivel 3 -->
+            <div class="univ-level-box">
+                <div class="univ-header">
+                    <h3>Nivel 3: Coordinación de Sesiones</h3>
+                    <span class="badge">0% Bloqueado</span>
+                </div>
+                <p>Taller de coordinación y manejo dinámico de grupos. Roles de servidores de sala y herramientas técnicas de oratoria con propósito.</p>
+                <div class="progress-bar-container"><div class="progress-bar" style="width: 0%;"></div></div>
+                <button class="btn btn-secondary btn-sm" disabled>Requiere Nivel 2</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER INTERMEDIO DE FILOSOFÍA -->
+    <div class="quote-banner">
+        <h2>“El liderazgo no es un cargo, es una responsabilidad. No se trata de tener seguidores, sino de formar más líderes.”</h2>
+    </div>
+
+    <!-- SECCIÓN 4: BIBLIOTECA DE LA LUZ -->
+    <section id="biblioteca">
+        <div class="section-header">
+            <h2>Biblioteca de la Luz</h2>
+            <p>“Todo líder necesita fuentes. Aquí se reúnen los materiales que sostienen nuestra palabra, nuestra práctica y nuestra forma de servir.”</p>
+        </div>
+
+        <div class="search-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="lib-search" class="search-input" placeholder="Buscar por tema, manual, protocolo, emoción..." onkeyup="filtrarBiblioteca()">
+        </div>
+
+        <div class="filter-tags">
+            <span class="filter-tag active" onclick="filtrarCategoria('all')">Todos</span>
+            <span class="filter-tag" onclick="filtrarCategoria('manuales')">Manuales</span>
+            <span class="filter-tag" onclick="filtrarCategoria('aa')">Literatura AA</span>
+            <span class="filter-tag" onclick="filtrarCategoria('fgdll')">Literatura Fraternidad</span>
+        </div>
+
+        <div class="grid-3" id="library-grid">
+            <div class="card lib-item" data-cat="manuales">
+                <div class="badge-list"><span class="badge">Manual Técnico</span></div>
+                <h3>Manual del Líder de Grupo</h3>
+                <p>Guía de responsabilidades administrativas y operativas de la máxima autoridad de la agrupación.</p>
+                <div class="card-actions">
+                    <button class="btn btn-primary btn-sm" onclick="simularDescarga('Manual del Líder')">Descargar</button>
+                </div>
+            </div>
+            <div class="card lib-item" data-cat="manuales">
+                <div class="badge-list"><span class="badge">Manual Técnico</span></div>
+                <h3>Manual del Padrino de Hacienda</h3>
+                <p>Protocolo completo de los 25 pasos consecutivos de apadrinamiento en la hacienda fortaleza.</p>
+                <div class="card-actions">
+                    <button class="btn btn-primary btn-sm" onclick="simularDescarga('Manual de Padrinos')">Descargar</button>
+                </div>
+            </div>
+            <div class="card lib-item" data-cat="fgdll">
+                <div class="badge-list"><span class="badge">FGDLL 2026</span></div>
+                <h3>Los 12 Principios del Guerrero</h3>
+                <p>Documento filosófico fundacional que orienta la conciencia y cuida la identidad del camino.</p>
+                <div class="card-actions">
+                    <button class="btn btn-primary btn-sm" onclick="simularDescarga('Los 12 Principios')">Descargar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE ADSENSE 2 (Separador Elegante) -->
+    <div class="ad-container">
+        <!-- Bloque de anuncio adaptable -->
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; height:100%; min-height:90px;"
+             data-ad-client="ca-pub-2119938123202915"
+             data-ad-slot="TU_CODIGO_DE_SLOT_AQUI"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- SECCIÓN 5: TEMAS Y COMUNICADOS -->
+    <section id="marketing">
+        <div class="section-header">
+            <h2>Marketing, Temas y Comunicados</h2>
+            <p>Herramientas de identidad visual, sugerencias de tribuna y noticias oficiales.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon"><i class="fa-brands fa-canva"></i></div>
+                <h3>Plantillas de Canva Oficiales</h3>
+                <p>Formatos estandarizados para anuncios de aniversarios, flyers y conferencias respetando los colores institucionales (#062E67).</p>
+                <button class="btn btn-primary btn-sm" onclick="simularAccion('Abriendo Canva...')">Usar Plantillas</button>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+                <h3>Sugerencias de Temas</h3>
+                <p>Guías para desarrollar tribunas sobre "Heridas Fundacionales", "Límites del Servicio" o "El Perdón", con estructura de 3 pasos.</p>
+                <button class="btn btn-secondary btn-sm" onclick="simularAccion('Abriendo repositorio de temas...')">Ver Fichas</button>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                <h3>Último Comunicado (04/JUN/26)</h3>
+                <p>Actualización del Reglamento Operativo 2026. Síntesis ejecutiva oficial unificada para grupos y haciendas.</p>
+                <button class="btn btn-secondary btn-sm" onclick="simularAccion('Leyendo comunicado...')">Leer Más</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6: ACCESOS RÁPIDOS -->
+    <section id="accesos-rapidos">
+        <div class="section-header">
+            <h2>Accesos Rápidos</h2>
+            <p>Herramientas inmediatas y de uso crítico para el ejercicio diario del liderazgo en sala.</p>
+        </div>
+        <div class="quick-grid">
+            <div class="quick-btn" onclick="simularDescarga('Formato Responsiva Adultos')">
+                <i class="fa-solid fa-file-pdf"></i><span>Descargar Responsiva</span>
+            </div>
+            <div class="quick-btn" onclick="switchTab('ops-reglamentos')">
+                <i class="fa-solid fa-scale-balanced"></i><span>Reglamento de Grupo</span>
+            </div>
+            <div class="quick-btn" onclick="simularAccion('Cargando Calendario Consolidado...')">
+                <i class="fa-solid fa-calendar-check"></i><span>Calendario Nacional</span>
+            </div>
+            <div class="quick-btn" onclick="simularAccion('Abriendo Directorio Geográfico...')">
+                <i class="fa-solid fa-address-book"></i><span>Directorio de Grupos</span>
+            </div>
+            <div class="quick-btn" onclick="simularAccion('Abriendo formulario de incidencias operativas...')">
+                <i class="fa-solid fa-triangle-exclamation"></i><span>Reportar Incidencia</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer>
+        <div class="footer-logo">Fraternidad de la Luz</div>
+        <div class="footer-sub">Guerreros de la Luz</div>
+        <p class="footer-motto">“Preservar la luz. Ordenar el servicio. Formar líderes.”</p>
+        
+        <div class="footer-recio">¡¡¡VAMOS RECIOOO!!!</div>
+        
+        <p class="footer-copy">
+            &copy; 2026 Guerreros de la Península A.C. Plataforma de Gobernanza e Integridad Institucional.<br>
+            Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <!-- INTERACCIONES JAVASCRIPT -->
+    <script>
+        // Lógica del menú móvil (Hamburguesa)
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('mobile-active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if(mainNav.classList.contains('mobile-active')) {
+                icon.className = 'fa-solid fa-xmark';
+            } else {
+                icon.className = 'fa-solid fa-bars';
+            }
+        });
+
+        // Cambio de pestañas interactivo en el Centro de Operaciones
+        function switchTab(tabId) {
+            document.querySelectorAll('.ops-content-block').forEach(block => {
+                block.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            const event = window.event;
+            if(event) {
+                event.target.classList.add('active');
+                // Auto scroll a la sección
+                document.getElementById('operaciones').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Buscador interactivo
+        function filtrarBiblioteca() {
+            const input = document.getElementById('lib-search').value.toLowerCase();
+            const items = document.querySelectorAll('.lib-item');
+            
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if(text.includes(input)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Filtro por etiquetas
+        function filtrarCategoria(cat) {
+            document.querySelectorAll('.filter-tag').forEach(tag => {
+                tag.classList.remove('active');
+            });
+            if(window.event) window.event.target.classList.add('active');
+
+            const items = document.querySelectorAll('.lib-item');
+            items.forEach(item => {
+                if(cat === 'all' || item.getAttribute('data-cat') === cat) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Alertas simuladas
+        function simularAccion(mensaje) {
+            alert(`[Portal Institucional]: \n\n${mensaje}\n\n(Simulación de conectividad con la base de datos nacional)`);
+        }
+
+        function simularDescarga(nombreDocumento) {
+            alert(`[Descarga Iniciada]: \n\nArchivo: "${nombreDocumento}.pdf" \n\nEste formato cumple con las pautas de estandarización legal de la A.C.`);
+        }
+
+        // Scroll Nav
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let currentSectionId = 'inicio';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 120) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
